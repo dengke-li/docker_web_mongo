@@ -14,7 +14,7 @@ def retrieve(key):
     result = collection.find_one({"key": key})
     return result['value']
 
-@app.route('/v1/key/<key>/value/<value>', methods=['POST'])
+@app.route('/v1/key/<key>/value/<value>', methods=['GET','POST'])
 def save(key,value):
     post = {'key':key,'value':value}
     post_id = collection.insert_one(post).inserted_id
