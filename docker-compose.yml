@@ -18,4 +18,6 @@ services:
       - ./data/db:/data/db
     ports:
         - 27000:27000
-    command: mongod --bind_ip 127.0.0.1 --smallfiles --logpath=/dev/null
+    expose:
+        - 27017
+    command: mongod --bind_ip_all --smallfiles --logpath=/dev/null

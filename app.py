@@ -1,10 +1,10 @@
 import time
 import os
 from pymongo import MongoClient
-from flask import Flask
+from flask import Flask,request
 
 app = Flask(__name__)
-client = MongoClient('mongodb://localhost:27000/',connect=False)
+client = MongoClient('mongodb:27017',connect=False)
 
 db = client['db']
 collection = db['test_collection']
