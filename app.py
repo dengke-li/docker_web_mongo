@@ -12,7 +12,10 @@ collection = db['test_collection']
 @app.route('/v1/key/<key>', methods=['GET'])
 def retrieve(key):
     result = collection.find_one({"key": key})
-    return result['value']
+    if result!=None:
+        return result['value']
+    else:
+        return 'value for the key:{} did not exist in database'.format(key)
 
 @app.route('/v1', methods=['POST'])
 def save():
