@@ -17,7 +17,7 @@ services:
     volumes:
       - ./data/db:/data/db
     ports:
-        - 27000:27000
+        - 27000:27017
     expose:
         - 27017
     command: mongod --bind_ip_all --smallfiles --logpath=/dev/null
