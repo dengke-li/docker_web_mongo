@@ -6,12 +6,14 @@ start container in local:
 cd docker_web_mongo
 sudo docker-compose up
 
-then type in browser to save (key1,value1) in database:
-http://0.0.0.0:5000/v1/key/key1/value/value1
 
-type in browser  http://0.0.0.0:5000/v1/key/key1 to get the value corresponding to key1
+curl -H "Content-Type: application/json" -X POST "http://0.0.0.0:5000/v1" -d "key=key11&value=value11"
+to save (key11,value11)
+
+curl -X GET http://0.0.0.0:5000/v1/key/key11
+ to get the value corresponding to key11
 
 
 
 close container:
-sudo docker-compose up
+sudo docker-compose down
